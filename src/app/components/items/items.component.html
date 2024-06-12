@@ -1,0 +1,20 @@
+
+<div class="m-5 position-relative">
+    <h1>POKEMON</h1>
+    <div class="position-absolute top-0 end-0">
+        <i (click)="selectGridView()" class="btn-hover rounded h2 m-2 bi bi-grid-3x3-gap-fill"></i>
+        <i (click)="selectTableView()" class="btn-hover rounded h2 m-2 bi bi-list-ul"></i>
+    </div>
+    <!-- <div class="position-absolute top-0 end-0" style="height: 200px;">
+        <i [routerLink]="['/', 'grid']" class="btn-hover rounded h2 m-2 bi bi-grid-3x3-gap-fill"></i>
+        <i [routerLink]="['/', 'table']" class="btn-hover rounded h2 m-2 bi bi-list-ul"></i>
+    </div> -->
+
+    <div *ngIf="gridSelected">
+        <app-grid-items class="m-5" [offset]="offset" [view]="view"></app-grid-items>
+    </div>
+
+    <div *ngIf="tableSelected">
+        <app-table-items class="m-5" [offset]="offset" [view]="view"></app-table-items>
+    </div>
+</div>

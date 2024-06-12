@@ -1,0 +1,9 @@
+<mat-card class="card m-1 d-flex justify-content-center" style="width: 18rem;">
+  <mat-card-header class="d-flex justify-content-center">
+    <mat-card-title class="text-capitalize">{{pokemon.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{pokemonImgURL}}">
+  <mat-card-actions class="d-flex flex-column">
+    <a [routerLink]="['/pokemon', pokemonIdNumber, offset, view]" class="btn btn-primary">Details</a>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,34 @@
+<div class="position-absolute" *ngIf="!loading">
+
+    <nav class="m-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link outline-none" 
+                    (click)="loadPokemonList(pokemonInfo.previous)">Previous</a></li>
+            <li class="page-item"><a class="page-link outline-none"
+                    (click)="loadPokemonList(pokemonInfo.next)">Next</a></li>
+        </ul>
+    </nav>
+
+    <div class="grid-view">
+        <div *ngFor="let pokemon of pokemonList" [@cardFlip]="pokemon.state">
+            <app-card-item [pokemon]="pokemon" [offset]="offset" [view]="view"></app-card-item>
+        </div>
+    </div>
+
+    <nav class="m-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link outline-none" 
+                    (click)="loadPokemonList(pokemonInfo.previous)">Previous</a></li>
+            <li class="page-item"><a class="page-link outline-none" 
+                    (click)="loadPokemonList(pokemonInfo.next)">Next</a></li>
+        </ul>
+    </nav>
+
+
+</div>
+
+<div class="my-spinner">
+    <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

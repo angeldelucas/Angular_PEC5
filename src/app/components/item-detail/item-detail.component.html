@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center">
+    <div class="m-5 card-header-container">
+        <div class="img-container">
+            <img class="img" src="{{pokemon.sprites.other.home.front_default}}" alt="">
+        </div>
+
+        <div class="poke-id">
+            <h1 class="fs-1 text-capitalize">{{pokemon.name}}</h1>
+            <h2>Type: {{pokemonTypes}}</h2>
+            <button type="button" class="btn btn-primary">Details</button>
+        </div>
+        <button type="button" class="btn btn-primary back-btn" [routerLink]="['', offset, view]">BACK</button>
+    </div>
+</div>

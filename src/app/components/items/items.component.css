@@ -1,0 +1,8 @@
+.btn-hover:hover{
+    cursor: pointer;
+    box-shadow:  0 .125rem .25rem black;
+}
+
+.outline-none{
+    box-shadow: none !important;
+}

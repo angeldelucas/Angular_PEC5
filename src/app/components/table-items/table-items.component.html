@@ -1,0 +1,50 @@
+<div *ngIf="!loading" class="d-flex flex-column align-items-center w-100">
+
+  <nav class="m-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link outline-none"
+          (click)="loadPokemonList(pokemonInfo.previous)">Previous</a></li>
+      <li class="page-item"><a class="page-link outline-none"
+          (click)="loadPokemonList(pokemonInfo.next)">Next</a></li>
+    </ul>
+  </nav>
+
+  <table mat-table [dataSource]="pokemonList" class="mat-elevation-z8 w-50" style="min-width: 50% !important;">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id. </th>
+      <td mat-cell *matCellDef="let element" [@cardFlip]="element.state"> {{element.url.split('/')[element.url.split('/').length - 2]}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element" class="text-capitalize" [@cardFlip]="element.state">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> ACTIONS </th>
+      <td mat-cell *matCellDef="let element" [@cardFlip]="element.state">
+        <a [routerLink]="['/pokemon', element.url.split('/')[element.url.split('/').length - 2], offset, view]" class="btn btn-primary">Details</a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <nav class="m-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link outline-none"
+          (click)="loadPokemonList(pokemonInfo.previous)">Previous</a></li>
+      <li class="page-item"><a class="page-link outline-none"
+          (click)="loadPokemonList(pokemonInfo.next)">Next</a></li>
+    </ul>
+  </nav>
+
+</div>
+
+<div class="my-spinner">
+  <div *ngIf="loading">
+      <mat-spinner></mat-spinner>
+  </div>
+</div>
