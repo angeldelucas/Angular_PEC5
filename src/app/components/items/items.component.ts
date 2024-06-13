@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-// import { PokemonDTO } from 'src/app/models/pokemon.interface';
-// import { PokemonListDTO } from 'src/app/models/pokemonList.interface';
 
 @Component({
   selector: 'app-items',
@@ -24,6 +22,7 @@ export class ItemsComponent {
     if(this.view == 'grid' || this.view == null){
       this.gridSelected = true;
       this.tableSelected = false;
+      this.view = 'grid'
     }
     else{
       this.gridSelected = false;

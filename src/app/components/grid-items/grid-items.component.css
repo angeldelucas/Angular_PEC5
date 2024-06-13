@@ -1,16 +1,16 @@
-.grid-view{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        max-width: 1480px;
+.grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1480px;
 }
 
-.btn-hover:hover{
+.btn-hover:hover {
     cursor: pointer;
-    box-shadow:  0 .125rem .25rem black;
+    box-shadow: 0 .125rem .25rem black;
 }
 
-.outline-none{
+.outline-none {
     box-shadow: none !important;
 }
 

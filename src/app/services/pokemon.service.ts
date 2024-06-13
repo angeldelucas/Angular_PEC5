@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PokemonListDTO } from '../models/pokemonList.interface';
 import { Observable } from 'rxjs';
-// import { PokemonDTO } from '../models/pokemon.interface';
 import { PokemonDetail } from '../models/pokemonDetailsDTO.interface';
 
 @Injectable({

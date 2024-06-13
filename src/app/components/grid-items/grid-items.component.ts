@@ -31,7 +31,6 @@ export class GridItemsComponent {
   pokemonList!: PokemonDTO[];
   loading!: boolean;
   state!: string;
-  // offset!: string;
 
   constructor(private pokemonService: PokemonService) {}
 

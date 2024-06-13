@@ -1,25 +1,52 @@
-<div class="d-flex justify-content-center">
-    <div class="m-5 card-header-container">
+<div *ngIf="pokemon" class="d-flex justify-content-center">
+    <div class="card-header-container adjust">
         <div class="w-100 d-flex justify-content-end">
             <button type="button" class="btn btn-primary back-btn m-4" [routerLink]="['', offset, view]">BACK</button>
         </div>
-        
+
         <div class="img-container">
-            <img class="img" src="{{pokemon.sprites.other!.home.front_default}}" alt="">
+            <img class="w-100" src="{{pokemon.sprites.other!.home.front_default}}" alt="">
         </div>
 
         <div class="m-2">
             <div class="poke-id m-2">
                 <h1 class="fs-1 text-capitalize">{{pokemon.name}}</h1>
                 <h2>Type: {{pokemonTypes}}</h2>
-                <button type="button" (click)="showHideDetails()" class="btn btn-primary">Details</button>
+                <button type="button" (click)="showHideDetails()" class="btn btn-primary outline-none">Details</button>
             </div>
 
             <div *ngIf="showDetails" class="details-container m-2">
                 <mat-tab-group>
-                    <mat-tab label="Abilities"> {{pokemonAbilities}} </mat-tab>
-                    <mat-tab label="Held Items"> {{pokemonItem}} </mat-tab>
-                    <mat-tab label="Third"> Content 3 </mat-tab>
+                    <mat-tab label="Abilities">
+                        <ul class="m-2">
+                            <li class="text-capitalize" *ngFor="let ability of pokemonAbilities">{{ability}}</li>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab label="Held Items">
+                        <ul class="m-2">
+                            <li class="text-capitalize" *ngFor="let item of pokemonItems">{{item}}</li>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab label="Moves">
+                        <ul class="m-2">
+                            <li class="text-capitalize" *ngFor="let move of pokemonMoves">{{move}}</li>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab label="Forms">
+                        <div class="w-100 img-container">
+                            <div class="w-100" *ngIf="pokemonImgUrlShowed != undefined">
+                                <img class="img" src="{{pokemonImgUrlShowed}}" alt="">
+                                <label class="text-capitalize">{{pokemonImgKey}}</label>
+                            </div>
+
+                            <div class="w-100 img-container d-flex flex-row justify-content-center">
+                                <button type="button" (click)="changeImgLeft()" class="m-2 btn btn-primary outline-none"><i
+                                        class="bi bi-arrow-left"></i></button>
+                                <button type="button" (click)="changeImgRight()" class="m-2 btn btn-primary outline-none"><i
+                                        class="bi bi-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </mat-tab>
                 </mat-tab-group>
             </div>
 
