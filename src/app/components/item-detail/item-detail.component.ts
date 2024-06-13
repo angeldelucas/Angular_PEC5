@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ability, HeldItem, PokemonDetail } from 'src/app/models/pokemonDetailsDTO.interface';
 
 @Component({
   selector: 'app-item-detail',
@@ -8,11 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent {
-
+  
   constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) { }
   
-  pokemon!: any;
+  showDetails: boolean = false;
+  pokemon!: PokemonDetail;
   pokemonTypes: string = '';
+  pokemonAbilities: string = '';
+  pokemonItem: string = '';
   offset: any = '';
   view: any = '';
 
@@ -26,6 +30,7 @@ export class ItemDetailComponent {
       console.log(pokemon);
       this.pokemon = pokemon;
 
+      // pokemon type
       this.pokemon.types.forEach((type: any, index: any, array: any) => {
         this.pokemonTypes += type.type.name;
 
@@ -33,6 +38,28 @@ export class ItemDetailComponent {
           this.pokemonTypes  = this.pokemonTypes + '/';
         }
       });
+
+      //pokemon abiliies
+      this.pokemon.abilities.forEach((ability: Ability, index: number, array: Ability[]) => {
+        this.pokemonAbilities += ability.ability.name;
+
+        if(array.length != 0 && index != array.length - 1){
+          this.pokemonAbilities  = this.pokemonAbilities + '/';
+        }
+      });
+
+      //pokemon held items
+      this.pokemon.held_items.forEach((item: HeldItem, index: number, array: HeldItem[]) => {
+        this.pokemonItem += item.item.name;
+
+        if(array.length != 0 && index != array.length - 1){
+          this.pokemonItem  = this.pokemonItem + '/';
+        }
+      });
     });
+  }
+
+  showHideDetails(): void {
+    this.showDetails = !this.showDetails;
   }
 }

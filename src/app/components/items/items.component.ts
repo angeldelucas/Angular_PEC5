@@ -21,7 +21,7 @@ export class ItemsComponent {
     this.offset = this.activatedRoute.snapshot.paramMap.get('offset');
     this.view = this.activatedRoute.snapshot.paramMap.get('view');
 
-    if(this.view == 'grid'){
+    if(this.view == 'grid' || this.view == null){
       this.gridSelected = true;
       this.tableSelected = false;
     }

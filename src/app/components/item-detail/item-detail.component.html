@@ -1,14 +1,30 @@
 <div class="d-flex justify-content-center">
     <div class="m-5 card-header-container">
+        <div class="w-100 d-flex justify-content-end">
+            <button type="button" class="btn btn-primary back-btn m-4" [routerLink]="['', offset, view]">BACK</button>
+        </div>
+        
         <div class="img-container">
-            <img class="img" src="{{pokemon.sprites.other.home.front_default}}" alt="">
+            <img class="img" src="{{pokemon.sprites.other!.home.front_default}}" alt="">
         </div>
 
-        <div class="poke-id">
-            <h1 class="fs-1 text-capitalize">{{pokemon.name}}</h1>
-            <h2>Type: {{pokemonTypes}}</h2>
-            <button type="button" class="btn btn-primary">Details</button>
+        <div class="m-2">
+            <div class="poke-id m-2">
+                <h1 class="fs-1 text-capitalize">{{pokemon.name}}</h1>
+                <h2>Type: {{pokemonTypes}}</h2>
+                <button type="button" (click)="showHideDetails()" class="btn btn-primary">Details</button>
+            </div>
+
+            <div *ngIf="showDetails" class="details-container m-2">
+                <mat-tab-group>
+                    <mat-tab label="Abilities"> {{pokemonAbilities}} </mat-tab>
+                    <mat-tab label="Held Items"> {{pokemonItem}} </mat-tab>
+                    <mat-tab label="Third"> Content 3 </mat-tab>
+                </mat-tab-group>
+            </div>
+
         </div>
-        <button type="button" class="btn btn-primary back-btn" [routerLink]="['', offset, view]">BACK</button>
     </div>
+
+
 </div>

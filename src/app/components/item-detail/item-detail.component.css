@@ -1,11 +1,12 @@
 .card-header-container{
     display: flex !important;
+    flex-direction: row;
     width: 70%;
     flex-wrap: wrap;
     border: 1px solid rgb(223, 223, 223);
     border-radius: 5px;
     box-shadow: 5px 5px 5px rgb(223, 223, 223);
-    position: relative;
+    /* position: relative; */
 }
 
 .img-container{
@@ -13,17 +14,17 @@
     height: fit-content;
 }
 
-.poke-id{
+/* .poke-id{
     position: absolute;
     right: 20%;
     top: 50%;
-}
+} */
 
 .back-btn{
     height: fit-content;
-    position: absolute;
+    /* position: absolute;
     right: 10px;
-    top: 20px;
+    top: 20px; */
 }
 
 .img{

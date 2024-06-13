@@ -10,7 +10,7 @@
         <i [routerLink]="['/', 'table']" class="btn-hover rounded h2 m-2 bi bi-list-ul"></i>
     </div> -->
 
-    <div *ngIf="gridSelected">
+    <div *ngIf="gridSelected" >
         <app-grid-items class="m-5" [offset]="offset" [view]="view"></app-grid-items>
     </div>
 

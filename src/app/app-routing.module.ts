@@ -8,7 +8,7 @@ import { TableItemsComponent } from './components/table-items/table-items.compon
 const routes: Routes = [
   { path: '', component: ItemsComponent},
   { path: ':offset/:view', component: ItemsComponent},
-  // { path: 'grid/:offset/:view', component: GridItemsComponent},
+  { path: 'grid/:offset/:view', component: GridItemsComponent},
   // { path: 'grid', component: GridItemsComponent},
   // { path: 'table', component: TableItemsComponent},
   { path: 'pokemon/:id/:offset/:view', component: ItemDetailComponent},
